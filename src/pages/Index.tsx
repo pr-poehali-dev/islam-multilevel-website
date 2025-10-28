@@ -6,6 +6,7 @@ import Icon from '@/components/ui/icon';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { getTranslation, Language } from '@/lib/translations';
+import { QuranReader } from '@/components/QuranReader';
 
 const Index = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -163,7 +164,11 @@ const Index = () => {
           })}
         </div>
 
-        {selectedSection && (
+        {selectedSection && selectedSection === 'quran' ? (
+          <div className="mb-12">
+            <QuranReader language={language} />
+          </div>
+        ) : selectedSection && (
           <Card className="mb-12 animate-fade-in border-2 border-primary">
             <CardHeader>
               <div className="flex items-center justify-between">
